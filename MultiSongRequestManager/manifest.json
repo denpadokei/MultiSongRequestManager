@@ -1,0 +1,15 @@
+﻿{
+  "$schema": "https://raw.githubusercontent.com/beat-saber-modding-group/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "MultiSongRequestManager",
+  "name": "MultiSongRequestManager",
+  "author": "",
+  "version": "0.0.1",
+  "description": "",
+  "gameVersion": "1.10.0",
+  "dependsOn": {
+    "BeatSaberMultiplayerLite": "^7.2.6",
+    "ChatCore": "^1.0.0",
+    "BeatSaverSharp": "^1.5.2"
+  },
+  "features": []
+}

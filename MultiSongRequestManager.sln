@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiSongRequestManager", "MultiSongRequestManager\MultiSongRequestManager.csproj", "{0968B437-BAD0-4A98-ADDB-1CE2CAA660FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0968B437-BAD0-4A98-ADDB-1CE2CAA660FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0968B437-BAD0-4A98-ADDB-1CE2CAA660FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0968B437-BAD0-4A98-ADDB-1CE2CAA660FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0968B437-BAD0-4A98-ADDB-1CE2CAA660FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3608160E-6E0F-4EBC-9392-F0E20766F025}
+	EndGlobalSection
+EndGlobal
