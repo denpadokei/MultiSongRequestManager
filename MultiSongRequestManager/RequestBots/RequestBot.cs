@@ -35,8 +35,6 @@ namespace MultiSongRequestManager.RequestBots
         public void Init()
         {
             try {
-                var chatcore = ChatCoreInstance.Create();
-                Plugin.ChatService = chatcore.RunAllServices();
                 Plugin.ChatService.OnTextMessageReceived += this.ChatService_OnTextMessageReceived;
             }
             catch (Exception e) {

@@ -22,6 +22,8 @@ namespace MultiSongRequestManager
 
         private MultiSongRequestManagerController _controller;
 
+        public static ChatCoreInstance ChatCoreInstance { get; private set; }
+
         internal static ChatServiceMultiplexer ChatService { get; set; }
         [Init]
         /// <summary>
@@ -52,6 +54,8 @@ namespace MultiSongRequestManager
         public void OnApplicationStart()
         {
             Logger.log.Debug("OnApplicationStart");
+            ChatCoreInstance = ChatCoreInstance.Create();
+            ChatService = ChatCoreInstance.RunAllServices();
             this._controller = new GameObject("MultiSongRequestManagerController").AddComponent<MultiSongRequestManagerController>();
         }
 
