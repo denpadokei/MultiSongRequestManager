@@ -63,6 +63,7 @@ namespace MultiSongRequestManager.RequestBots
                 var key = message.Message.Split(' ').Last();
                 var songInfo = await _current.Key(key);
                 if (songInfo == null) {
+                    Logger.log.Info($"Not find {key}");
                     return;
                 }
                 Client.Instance?.RequestSong(new SongInfo()
