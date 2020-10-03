@@ -8,6 +8,7 @@ using ChatCore.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -58,9 +59,9 @@ namespace MultiSongRequestManager.RequestBots
                 return;
             }
             await _requestSemapho.WaitAsync();
-            var key = message.Message.Split(' ').Last();
             try {
-                var songInfo = await BeatSaver.Client.Key(key);
+                var key = message.Message.Split(' ').Last();
+                var songInfo = await _current.Key(key);
                 if (songInfo == null) {
                     return;
                 }
@@ -85,15 +86,25 @@ namespace MultiSongRequestManager.RequestBots
         #endregion
         //ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*
         #region // メンバ変数
-        private Regex _requestRegex = new Regex("(^!bsr) .+");
+        private Regex _requestRegex = new Regex("(^!bsr|^!sr|^!add) .+");
 
         private static readonly SemaphoreSlim _requestSemapho = new SemaphoreSlim(1, 1);
+        private static readonly BeatSaver _current;
         #endregion
         //ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*
         #region // 構築・破棄
         private RequestBot()
         {
 
+        }
+        static RequestBot()
+        {
+            var http = new HttpOptions()
+            {
+                ApplicationName = "MultiSongRequestManager",
+                Version = Assembly.GetCallingAssembly().GetName().Version
+            };
+            _current = new BeatSaver(http);
         }
         #endregion
     }

@@ -10,6 +10,7 @@ using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 using ChatCore.Services;
 using ChatCore;
+using MultiSongRequestManager.RequestBots;
 
 namespace MultiSongRequestManager
 {
@@ -20,7 +21,7 @@ namespace MultiSongRequestManager
         internal static Plugin instance { get; private set; }
         internal static string Name => "MultiSongRequestManager";
 
-        private MultiSongRequestManagerController _controller;
+        //private MultiSongRequestManagerController _controller;
 
         public static ChatCoreInstance ChatCoreInstance { get; private set; }
 
@@ -56,7 +57,8 @@ namespace MultiSongRequestManager
             Logger.log.Debug("OnApplicationStart");
             ChatCoreInstance = ChatCoreInstance.Create();
             ChatService = ChatCoreInstance.RunAllServices();
-            this._controller = new GameObject("MultiSongRequestManagerController").AddComponent<MultiSongRequestManagerController>();
+            //this._controller = new GameObject("MultiSongRequestManagerController").AddComponent<MultiSongRequestManagerController>();
+            RequestBot.Current.Init();
         }
 
         [OnExit]

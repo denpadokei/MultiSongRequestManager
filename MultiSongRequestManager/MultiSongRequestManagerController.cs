@@ -32,7 +32,6 @@ namespace MultiSongRequestManager
             }
             GameObject.DontDestroyOnLoad(this); // Don't destroy this object on scene changes
             instance = this;
-            RequestBot.Current.Init();
 
             Logger.log?.Debug($"{name}: Awake()");
         }
