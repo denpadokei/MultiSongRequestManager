@@ -48,6 +48,9 @@ namespace MultiSongRequestManager.RequestBots
         private void ChatService_OnTextMessageReceived(IChatService arg1, IChatMessage arg2)
         {
             Logger.log.Info("Receved message");
+            if (!Client.Instance.inRoom) {
+                return;
+            }
             _ = this.Request(arg2);
         }
 
