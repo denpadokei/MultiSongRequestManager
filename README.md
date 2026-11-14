@@ -1,6 +1,5 @@
 # MultiSongRequestManager
 
-[![Build and Release](https://github.com/denpadokei/MultiSongRequestManager/actions/workflows/build-and-release.yml/badge.svg)](https://github.com/denpadokei/MultiSongRequestManager/actions/workflows/build-and-release.yml)
 
 BeatSaberMultiplayerLite のマルチプレイルームで、Twitch チャットからの楽曲リクエストを受け付ける MOD です。`!bsr` `!sr` `!add` に対応しています。
 
@@ -52,7 +51,8 @@ msbuild .\MultiSongRequestManager\MultiSongRequestManager.csproj /t:Build /p:Con
 
 `BeatSaberDir` は csproj で `$(ProjectDir)Refs` を既定値にしているため、`/p:BeatSaberDir="C:\Program Files\Beat Saber"` のように指定するとゲームの参照アセンブリを解決できます。
 
-GitHub Actions の `build-and-release.yml` が push ごとにビルドし、`X.X.X` 形式のタグを push するとリリースを作成します。
+
+> GitHub Actions によるビルドは未設定です。manifest の対象バージョン (1.11.1) 向けの BeatSaberMultiplayerLite が BeatMods に存在せず、CI で参照アセンブリを解決できないため。
 
 ## ライセンス
 
